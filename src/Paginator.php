@@ -79,6 +79,19 @@ class Paginator
         return $this->hasNextPage() ? ++$this->currentPage : false;
     }
 
+    /**
+     * Advance the internal pointer to next page and return current
+     *
+     * @return int
+     */
+    public function advanceNextPage()
+    {
+        $current = $this->currentPage;
+        $this->hasNextPage() ? $this->currentPage++ : false;
+
+        return $current;
+    }
+
     public function setTotal($total)
     {
         $this->total = $total;
